@@ -1,12 +1,15 @@
 
 import './App.css';
 
+
 const App = () => {
   return (
     <div className="App">
-     <Header />
-     <Navbar />
-     <Messages />
+     <ul>
+       <li>Header</li>
+       <li>Content </li>
+       <li>Profile</li>
+     </ul>
     </div>
   );
 }
