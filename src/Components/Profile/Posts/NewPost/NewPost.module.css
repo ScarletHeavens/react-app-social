@@ -1,0 +1,9 @@
+.avatar img {
+    width: 20px;
+    height: 20px;
+    border-radius: 30%px;
+}
+
+.like {
+    font-size: 14px
+}

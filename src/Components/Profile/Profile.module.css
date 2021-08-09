@@ -1,0 +1,16 @@
+.content {
+    background-color: rgb(230, 134, 117);
+  }
+  
+  
+ .ava img {
+  width: 60px;
+  border-radius: 50px;
+}
+
+.ava {
+  border-radius: 2px;
+  border-style: groove;
+  background-color: whitesmoke;
+  text-align: center;
+}
