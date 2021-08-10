@@ -3,7 +3,7 @@ import Posts from './Posts/Posts'
 
 
 const Content = () => {
-    return <div className ={c.content}>
+    return <div>
     <div>
     <img src="https://wowslider.com/sliders/demo-44/data1/images/bridge.jpg" alt='sunset'></img>
     </div>

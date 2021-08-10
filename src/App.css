@@ -11,12 +11,19 @@
  
 }
 
+.app-wrapper-content {
+    background-color: rgb(230, 134, 117);
+    grid-area: c; 
+}
+
 .nav {
   grid-area: n;
 }
+
 .header {
   grid-area: h;
 }
-.profile {
-  grid-area: c;
+
+.content {
+ grid-area: c;
 }

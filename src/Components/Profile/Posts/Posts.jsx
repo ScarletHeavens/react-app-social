@@ -9,8 +9,9 @@ const Posts = () => {
         </div> 
 <textarea></textarea>
 <button>new post</button>
-< NewPost message='Write at least 20 pages per day'/>
+< NewPost message='I love trans fats'/>
 < NewPost message='Misery was inspired by my first girlfriend'/>
+<NewPost message ='Happy FriYay!' />
 </div>)
 };
 
