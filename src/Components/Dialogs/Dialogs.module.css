@@ -1,0 +1,15 @@
+.dialogs {
+display: grid;
+grid-template-columns: 2fr 10fr;
+}
+
+.dialogList {
+padding:10px;
+}
+.dialogList .active {
+color:rgb(5, 81, 83);
+}
+.messages {
+padding:10px;
+}
+

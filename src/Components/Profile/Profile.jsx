@@ -5,9 +5,10 @@ import Posts from './Posts/Posts'
 const Content = () => {
     return <div>
     <div>
-    <img src="https://wowslider.com/sliders/demo-44/data1/images/bridge.jpg" alt='sunset'></img>
+    <img src="https://odindesignthemes.com/vikinger-theme/wp-content/uploads/buddypress/members/1/cover-image/5f6d2c93c75db-bp-cover-image.jpg" alt='sunset'></img>
     </div>
-    <div className = {c.ava}> <img src='https://www.pinclipart.com/picdir/big/51-511102_design-free-logo-srj-hd-logo-png-clipart.png'></img> Hi, my name is Stephen King and I am a beginner writer. Follow me to learn everything about horror.</div>
+
+    <div className = {c.ava}> <img src='https://odindesignthemes.com/vikinger-theme/wp-content/uploads/2020/09/cropped-logovikinger.png'></img> Hi, my name is Stephen King and I am a beginner writer. Follow me to learn everything about horror.</div>
     <div> <Posts /></div>
     </div>
 };
