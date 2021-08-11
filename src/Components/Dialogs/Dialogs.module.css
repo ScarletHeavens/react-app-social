@@ -1,6 +1,7 @@
 .dialogs {
 display: grid;
 grid-template-columns: 2fr 10fr;
+
 }
 
 .dialogList {
@@ -13,3 +14,7 @@ color:rgb(5, 81, 83);
 padding:10px;
 }
 
+.name a {
+    text-decoration: none;
+    
+}
