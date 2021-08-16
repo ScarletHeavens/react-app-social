@@ -11,4 +11,10 @@
   border-style: groove;
   background-color: rgb(206, 187, 187);
   text-align: center;
+  border-right: 40px;
+}
+
+.bio { 
+  margin-top: 140px;
+
 }

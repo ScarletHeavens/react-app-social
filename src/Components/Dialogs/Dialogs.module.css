@@ -18,3 +18,24 @@ padding:10px;
     text-decoration: none;
     
 }
+
+.button { 
+    box-shadow: rgb(39 104 115) 0px 10px 14px -7px;
+    background-color: rgb(150, 155, 156);
+    border-radius: 8px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.textArea {
+    background-image:url('https://odindesignthemes.com/vikinger-theme/wp-content/uploads/buddypress/members/1/cover-image/5f6d2c93c75db-bp-cover-image.jpg');
+	background-repeat:repeat-x;
+	border:1px solid #d1c7ac;
+	width: 230px;
+	height: 60px;
+	color:#333333;
+	padding:3px;
+	margin-right:4px;
+	margin-bottom:8px;
+	font-family:tahoma, arial, sans-serif;
+}

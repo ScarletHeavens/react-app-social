@@ -1,0 +1,14 @@
+
+  
+ .ava img {
+  width: 30px;
+  border-radius: 50px;
+  position: relative;
+}
+
+.ava {
+  border-radius: 2px;
+  border-style: groove;
+  background-color: rgb(206, 187, 187);
+  text-align: center;
+}

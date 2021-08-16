@@ -1,37 +1,33 @@
 import c from './Dialogs.module.css';
-import {NavLink} from "react-router-dom"; 
+import Message from './Message/Message';
+import Name from './Name/Name';
+import React from 'react';
 
-const Name = (props) => {
-    let path = "/messages/" + props.id;  
-    return (
-        <div className = {c.name}>
-        <NavLink to = {path}> {props.name} </NavLink> 
-         </div>
-    );
-};
-
-const Message = (props) => {
-    return (
-        <div className= {c.message}>{props.message}</div>
-    );
-}
 
 const Dialogs = (props) => {
+    let nameList = props.state.names.map(el => (< Name name = {el.name} id={el.id}/>));
+    let messageList = props.state.messages.map(el =>  <Message message = {el.message}/>)
+    let newMessageArea = React.createRef();
+    let postMessage =  () => {
+        let text = newMessageArea.current.value;
+        alert(text);
+    }
+    
     return (
-        <div className={c.dialogs}>
+       <div> <div className={c.dialogs}>
             <div className = {c.dialogList}>
-            <Name  name ="Ivan" id="1"/>
-            <Name  name ="Nelli" id="2"/>
-            <Name  name ="Jacub" id="3"/>
-            <Name  name ="Hovhannes" id="4"/>
+            {nameList}
             </div>
 
            <div className= {c.messages}>
-               <Message message = 'Sup Steph'/>
-               <Message message = 'Sand Dunes'/>
-               <Message message = 'Your last book sucks!'/>
+              {messageList}
               </div>
               </div>
+               
+              <textarea ref={newMessageArea} className = {c.textArea}></textarea>
+              <button className = {c.button} onClick = {postMessage}> Post </button>
+
+</div>
     )
 }
 export default Dialogs;

@@ -3,11 +3,11 @@ import Posts from './Posts/Posts'
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 
-const Content = () => {
+const Profile = (props) => {
     return <div>
     <ProfileInfo />
-    <Posts />
+    <Posts state = {props.state.posts} addPost ={props.addPost}/>
     </div>
 };
 
-export default Content; 
+export default Profile; 

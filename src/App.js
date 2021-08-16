@@ -8,17 +8,16 @@ import Feed from './Components/NewsFeed/Feed';
 import Settings from './Components/Settings/Settings'
 
 
-const App = () => {
+
+const App = (props) => {
   return (
      <BrowserRouter>
     <div className ='app-wrapper'>
-    <div className = 'header'>
-      < Header /></div>
-    <div className = 'nav'>
-      < Navbar/></div>
-    <div className = 'app-wrapper-content'>
-      < Route path='/messages' component= {Dialogs}/>
-      < Route path='/home' component ={Profile} />
+    <div className = 'header'> < Header /></div>
+    <div className = 'nav'> < Navbar/></div>
+    <div className = 'app-wrapper-content'> 
+      < Route path='/messages' render ={ () => < Dialogs state = {props.state.messagePage} />} /> 
+      < Route path='/home' render = { () => <Profile state = {props.state.profilePage} addPost = {props.addPost}/> } />
       < Route path='/feed' component ={Feed}/>
       < Route path='/settings' component ={Settings}/>
       </div>

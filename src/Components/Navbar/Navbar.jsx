@@ -12,6 +12,12 @@ return (
     <br></br>
     <div><NavLink to='/settings' activeClassName = {c.active}>Settings</NavLink></div>
     </div>
+    <br/>
+    <div className = {c.block}><div className = {c.skills}>Skills</div>
+    <img src ='https://odindesignthemes.com/vikinger-theme/wp-content/uploads/2020/09/cropped-logovikinger.png'></img><span>Dancin</span> 
+    <img src ='https://odindesignthemes.com/vikinger-theme/wp-content/uploads/2020/09/cropped-logovikinger.png'></img><span>Playin</span> 
+    <img src ='https://odindesignthemes.com/vikinger-theme/wp-content/uploads/2020/09/cropped-logovikinger.png'></img><span>Livin</span>
+    </div>
     </nav>
 );}
 

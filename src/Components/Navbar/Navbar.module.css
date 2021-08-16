@@ -2,7 +2,9 @@
 .nav { 
     background-color:#f2f2f7;
     min-height: 100%;
-    padding: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 20px;
     
     }
 
@@ -14,4 +16,16 @@
 
 .item a.active{
     color: #615dfa;
+}
+
+.skills{
+    padding-top: 5px;
+}
+.block {
+  padding-bottom:20px;
+  border-radius: 2px;
+  border-style: groove;
+  background-color: rgb(206, 187, 187);
+  position: relative;
+  text-align: center;
 }
