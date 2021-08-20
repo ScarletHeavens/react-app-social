@@ -2,15 +2,20 @@ import c from './Dialogs.module.css';
 import Message from './Message/Message';
 import Name from './Name/Name';
 import React from 'react';
-
+import {addMessageActionCreator, updNewMessageBodyCreator} from './../../Components/Redux/Store'
 
 const Dialogs = (props) => {
-    let nameList = props.state.names.map(el => (< Name name = {el.name} id={el.id}/>));
-    let messageList = props.state.messages.map(el =>  <Message message = {el.message}/>)
-    let newMessageArea = React.createRef();
-    let postMessage =  () => {
-        let text = newMessageArea.current.value;
-        alert(text);
+    let state = props.store.getState().messagePage;
+    let nameList = state.names.map(el => (< Name name = {el.name} id={el.id}/>));
+    let messageList = state.messages.map(el =>  <Message message = {el.message}/>)
+    let newMessageChange = state.newMessageChange;
+    let addMessage = () => {
+        props.dispatch(addMessageActionCreator());
+    }
+
+    let onMessageChange = (e) => {
+    let body = e.target.value; 
+    props.store.dispatch(updNewMessageBodyCreator(body));
     }
     
     return (
@@ -24,8 +29,8 @@ const Dialogs = (props) => {
               </div>
               </div>
                
-              <textarea ref={newMessageArea} className = {c.textArea}></textarea>
-              <button className = {c.button} onClick = {postMessage}> Post </button>
+              <textarea value= {newMessageChange} className = {c.textArea} onChange = {onMessageChange}></textarea>
+              <button className = {c.button} onClick = {addMessage}> Post </button>
 
 </div>
     )
