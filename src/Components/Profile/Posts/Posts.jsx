@@ -1,7 +1,7 @@
  import c from './Posts.module.css';
 import React from 'react';
 import NewPost from '/Users/nellimelik/first-react-app/src/Components/Profile/Posts/NewPost/NewPost.jsx';
-import {updNewPostActionCreator, addPostActionCreator} from '../../Redux/Store.js'
+import {updNewPostActionCreator, addPostActionCreator} from '../../Redux/ProfilePageReducer'
 
 const Posts = (props) => {
  let publicList = props.posts.map(el => (< NewPost message={el.message} likeCount={el.likeCount}/>));
