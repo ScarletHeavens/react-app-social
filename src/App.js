@@ -1,5 +1,5 @@
 import './App.css';
-import Dialogs from './Components/Dialogs/Dialogs';
+import DialogsContainer from './Components/Dialogs/DialogsContainer';
 import Profile from './Components/Profile/Profile';
 import Header from './Components/Header/Header';
 import Navbar from './Components/Navbar/Navbar';
@@ -9,19 +9,19 @@ import Settings from './Components/Settings/Settings'
 
 
 
-const App = (props) => {
+const App = () => {
   return (
      <BrowserRouter>
     <div className ='app-wrapper'>
     <div className = 'header'> < Header /></div>
     <div className = 'nav'> < Navbar/></div>
     <div className = 'app-wrapper-content'> 
-      < Route path='/messages' render ={ () => < Dialogs state = {props.state.messagePage} store= {props.store} dispatch = {props.dispatch}/>} /> 
-      < Route path='/home' render = { () => <Profile profilePage = {props.state.profilePage} dispatch = {props.dispatch}/> } />
+      < Route path='/messages' render ={ () => < DialogsContainer/>} /> 
+      < Route path='/home' render = { () => <Profile /> } />
       < Route path='/feed' component ={Feed}/>
       < Route path='/settings' component ={Settings}/>
       </div>
-</div>  </BrowserRouter>
+</div>  </BrowserRouter>  
   );
 }
 

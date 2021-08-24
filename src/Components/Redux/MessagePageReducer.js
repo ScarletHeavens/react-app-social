@@ -1,8 +1,13 @@
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 
+let defaultState =  {
+    messages : [{message: "Sand dunes", id:1}, {message: 'Carry sucks', id:2}, {message: "Whassup", id:3}],
+    names : [{ name: 'Ivan', id:1},{ name: 'Nelli', id:2}, { name: 'Jacub', id:3}, { name: 'Hovhannes', id:4}],
+    newMessageChange: '',
+};
 
-const messagePageReducer = (state, action) => {
+const messagePageReducer = (state = defaultState, action) => {
     switch (action.type){
        case 'UPDATE-NEW-MESSAGE-TEXT':
             state.newMessageChange = action.newMessage;

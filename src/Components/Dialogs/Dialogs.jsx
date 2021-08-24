@@ -2,20 +2,20 @@ import c from './Dialogs.module.css';
 import Message from './Message/Message';
 import Name from './Name/Name';
 import React from 'react';
-import {addMessageActionCreator, updNewMessageBodyCreator} from '../Redux/MessagePageReducer'
 
 const Dialogs = (props) => {
-    let state = props.store.getState().messagePage;
+    let state = props.messagePage;
     let nameList = state.names.map(el => (< Name name = {el.name} id={el.id}/>));
     let messageList = state.messages.map(el =>  <Message message = {el.message}/>)
-    let newMessageChange = state.newMessageChange;
+    let newMessageBody = state.newMessageChange;
+    
     let addMessage = () => {
-        props.dispatch(addMessageActionCreator());
+        props.sendMessage();
     }
 
     let onMessageChange = (e) => {
     let body = e.target.value; 
-    props.store.dispatch(updNewMessageBodyCreator(body));
+    props.updateNewMessageBody(body);
     }
     
     return (
@@ -29,7 +29,7 @@ const Dialogs = (props) => {
               </div>
               </div>
                
-              <textarea value= {newMessageChange} className = {c.textArea} onChange = {onMessageChange}></textarea>
+              <textarea value= {newMessageBody} className = {c.textArea} onChange = {onMessageChange}></textarea>
               <button className = {c.button} onClick = {addMessage}> Post </button>
 
 </div>

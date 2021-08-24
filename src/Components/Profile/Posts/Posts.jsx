@@ -1,19 +1,18 @@
  import c from './Posts.module.css';
 import React from 'react';
 import NewPost from '/Users/nellimelik/first-react-app/src/Components/Profile/Posts/NewPost/NewPost.jsx';
-import {updNewPostActionCreator, addPostActionCreator} from '../../Redux/ProfilePageReducer'
 
 const Posts = (props) => {
  let publicList = props.posts.map(el => (< NewPost message={el.message} likeCount={el.likeCount}/>));
  let newPostArea = React.createRef();
 
  let addPost = () => {
-       props.dispatch(addPostActionCreator());
+       props.addPost();
 };
 
  let onPostChange = () => {
  let text = newPostArea.current.value;
- props.dispatch(updNewPostActionCreator(text));
+ props.updNewPostText(text);
  }
 
 return (<div className = {c.block}>
