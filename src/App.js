@@ -6,6 +6,7 @@ import Navbar from './Components/Navbar/Navbar';
 import {BrowserRouter, Route} from "react-router-dom";
 import Feed from './Components/NewsFeed/Feed';
 import Settings from './Components/Settings/Settings'
+import UserPageContainer from './Components/UserPage/UserPageContainer'
 
 
 
@@ -19,7 +20,8 @@ const App = () => {
       < Route path='/messages' render ={ () => < DialogsContainer/>} /> 
       < Route path='/home' render = { () => <Profile /> } />
       < Route path='/feed' component ={Feed}/>
-      < Route path='/settings' component ={Settings}/>
+      < Route path='/users' render= {() => <UserPageContainer /> } />
+      < Route path='/settings' component ={Settings} />
       </div>
 </div>  </BrowserRouter>  
   );

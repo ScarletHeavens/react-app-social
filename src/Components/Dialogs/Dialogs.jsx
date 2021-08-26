@@ -5,8 +5,8 @@ import React from 'react';
 
 const Dialogs = (props) => {
     let state = props.messagePage;
-    let nameList = state.names.map(el => (< Name name = {el.name} id={el.id}/>));
-    let messageList = state.messages.map(el =>  <Message message = {el.message}/>)
+    let nameList = state.names.map(el => (< Name name = {el.name} id={el.id} key ={el.id}/>));
+    let messageList = state.messages.map(el =>  <Message message = {el.message} key={el.id}/>)
     let newMessageBody = state.newMessageChange;
     
     let addMessage = () => {

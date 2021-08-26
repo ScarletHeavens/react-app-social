@@ -8,15 +8,19 @@ let defaultState =  {
 };
 
 const messagePageReducer = (state = defaultState, action) => {
-    switch (action.type){
+  
+    switch (action.type) {
        case 'UPDATE-NEW-MESSAGE-TEXT':
-            state.newMessageChange = action.newMessage;
-            return state;
-        case 'ADD-MESSAGE':
+           return {
+               ...state,
+               newMessageChange: action.newMessage,}; 
+
+        case 'ADD-MESSAGE': 
         let body = state.newMessageChange;
-        state.newMessageChange = '';
-        state.messages.push({message: body, id: 4});
-        return state;
+          return {
+               ...state,
+               newMessageChange : '',
+               messages: [...state.messages, {message: body, id: 4}],};
         default: return state;
         }
 }

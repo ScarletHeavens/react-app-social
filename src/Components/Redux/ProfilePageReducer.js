@@ -13,13 +13,17 @@ const profilePageReducer = (state = defaultState, action) => {
           id: 5,
           message: state.newPostChange,
           likeCount: 9
-        }
-        state.posts.push(nPost);
-        state.newPostChange = '';
-        return state;
+        };
+        return {
+          ...state,
+          posts: [...state.posts, nPost],
+          newPostChange: '',      
+        };
         case 'UPDATE-NEW-POST-TEXT':
-        state.newPostChange = action.newText;
-        return state;
+        return {
+          ...state,
+          newPostChange: action.newText,
+        }
         default: return state;
 }};
 

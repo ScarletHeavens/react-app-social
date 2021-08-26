@@ -9,6 +9,7 @@ return (
     <div><NavLink to='/home'   activeClassName = {c.active}>Home</NavLink> </div>
     <div><NavLink to='/feed'   activeClassName = {c.active}>News Feed</NavLink></div>
     <div><NavLink to='/messages' activeClassName = {c.active}>Messages</NavLink></div>
+    <div><NavLink to='/users' activeClassName = {c.active}>Users</NavLink></div>
     <br></br>
     <div><NavLink to='/settings' activeClassName = {c.active}>Settings</NavLink></div>
     </div>
