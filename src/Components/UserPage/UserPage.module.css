@@ -2,3 +2,7 @@
    width: 70px;
    length: 70px; 
 }
+
+.active { 
+   color: #615dfa;
+}
