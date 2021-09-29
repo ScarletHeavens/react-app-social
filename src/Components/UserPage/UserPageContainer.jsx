@@ -3,12 +3,14 @@ import React from 'react';
 import {follow, unfollow, setCurrentPage, toggleFollowingProgress,getUsers} from './../Redux/UserPageReducers';
 import {connect} from 'react-redux';
 import Preloader from '../Common/Preloader';
+import { withAuthRedirect } from '../../hoc/AuthRedirect';
+import { compose } from 'redux';
 
 
 class UserContainer extends React.Component {
-  
+            
   componentDidMount(){
-      this.props.getUsers(this.props.currentPage,this.props.pageSize);
+    this.props.getUsers(this.props.currentPage,this.props.pageSize);
   }
   
   onPageChange = (u) => {
@@ -43,9 +45,9 @@ return {
   }
 };
 
-
-const UserPageContainer = connect(mapStateToProps,{
-  follow,unfollow,setCurrentPage,
-  toggleFollowingProgress,getUsers,})
-  (UserContainer);
-export default UserPageContainer;
+export default compose(
+connect(mapStateToProps,{
+      follow,unfollow,setCurrentPage,
+      toggleFollowingProgress,getUsers,}),
+withAuthRedirect
+  )(UserContainer) 

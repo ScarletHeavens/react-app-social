@@ -26,6 +26,7 @@ const UserPage = (props) => {
                     </div>
                 <div> {u.follow 
                 ? <button disabled = {props.followingProgress.some(id => id===u.id)} onClick = { () => {
+                   
                     props.unfollow (u.id);
                     }}> Unfollow</button>
                 

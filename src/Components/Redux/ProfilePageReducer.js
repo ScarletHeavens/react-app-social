@@ -37,16 +37,16 @@ const profilePageReducer = (state = defaultState, action) => {
 }};
 
 
-
-export const getUserProfile = (id) => (dispatch) => {
-  userAPI.getProfile(id)
-        .then(response => {
-           dispatch(setUserProfile(response.data));
-             });
-}
-
 export const addPostActionCreator = () => ({type: ADD_POST});
 const setUserProfile = (id) => ({type: SET_USER_PROFILE, id});
+
+//thunk
+export const getUserProfile = (id) => (dispatch) => {
+  userAPI.getProfile(id)
+  .then(response => {
+     dispatch(setUserProfile(response.data));
+       });
+}
 export const updNewPostActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text });
 
 export default profilePageReducer;

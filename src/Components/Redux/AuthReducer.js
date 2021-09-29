@@ -22,15 +22,15 @@ const authReducer = (state = defaultState, action) => {
         }
 }
 
-export const setUserData = (email, id, login) => ({type: SET_USER_DATA, data: { email, id, login}});
+const setUserData = (email, id, login) => ({type: SET_USER_DATA, data: { email, id, login}});
 
-// export const getUserData = () => (dispatch) => {
-//     authAPI.me().then(data => {
-//         if (data.resultCode === 0) {
-//         let {id, email, login} = data.data;
-//          dispatch(setUserData(id, email, login));
-//         }
-//           });
-// }
+export const getUserData = () => (dispatch) => {
+    authAPI.me().then(response => {
+        if (response.data.resultCode === 0) {
+        let {id, email, login} = response.data.data;
+         dispatch(setUserData(email, id, login));
+        }
+          });
+}
 
 export default authReducer;

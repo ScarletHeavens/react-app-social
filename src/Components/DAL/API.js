@@ -17,7 +17,7 @@ export const userAPI = {
   .then(response => {return response.data });
   },
 
-  follow (id = 1, {}) {
+  follow (id = 1) {
   return instance.post(`follow/${id}`)
   .then(response => {return response.data});
   },
@@ -29,6 +29,5 @@ export const userAPI = {
 
   export const authAPI = {
     me() {return instance.get(`auth/me`)
-    .then(response => {return response.data});
-   }
+  }
   }

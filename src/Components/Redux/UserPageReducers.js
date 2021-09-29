@@ -90,7 +90,7 @@ const userPageReducer = (state = defaultState, action) => {
     export const follow = (id) => {
         return (dispatch) => {
            dispatch(toggleFollowingProgress(true, id));
-           userAPI.follow(id, {}).then(data => {
+           userAPI.follow(id).then(data => {
                 if (data.resultCode == 0) dispatch(followSuccess(id));
            dispatch(toggleFollowingProgress(false, id));
         });
