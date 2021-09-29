@@ -2,7 +2,6 @@ import React from 'react';
 import c from './UserPage.module.css';
 import img from '/Users/nellimelik/first-react-app/src/Assets/Images/profile.png';
 import {NavLink} from 'react-router-dom';
-import {userAPI} from '../DAL/API';
 
 const UserPage = (props) => {
     let pages = [];
@@ -26,15 +25,12 @@ const UserPage = (props) => {
                    <NavLink to ={'/home/'+ u.id}> <img src={u.photos.small == null ? img : u.photos.small}></img></NavLink> 
                     </div>
                 <div> {u.follow 
-                ? <button onClick = { () => {
-                    userAPI.unsubscribe(u.id).then(data => {
-                        if (data.resultCode == 0)  props.unfollow(u.id)
-                      });}}> Unfollow</button>
+                ? <button disabled = {props.followingProgress.some(id => id===u.id)} onClick = { () => {
+                    props.unfollow (u.id);
+                    }}> Unfollow</button>
                 
-                : <button onClick = { ()=> {
-                    userAPI.subscribe(u.id, {}).then(data => {
-                        if (data.resultCode == 0)  props.follow(u.id)
-                         });
+                : <button disabled = {props.followingProgress.some(id => id===u.id)} onClick = { ()=> {
+                    props.follow(u.id);
                    }}>Follow</button>
                 
                 }</div>

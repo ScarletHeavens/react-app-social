@@ -12,14 +12,23 @@ export const userAPI = {
   .then(response => {return response.data});
   },
   
-  unsubscribe (id = 1) {
+  unfollow (id = 1) {
   return instance.delete(`follow/${id}`)
   .then(response => {return response.data });
   },
 
-  subscribe (id = 1, {}) {
+  follow (id = 1, {}) {
   return instance.post(`follow/${id}`)
   .then(response => {return response.data});
   },
 
-}
+  getProfile (id) {  
+   return instance.get(`profile/${id}`);
+    }
+  }
+
+  export const authAPI = {
+    me() {return instance.get(`auth/me`)
+    .then(response => {return response.data});
+   }
+  }

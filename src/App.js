@@ -2,6 +2,7 @@ import './App.css';
 import DialogsContainer from './Components/Dialogs/DialogsContainer';
 import ProfileContainer from './Components/Profile/ProfileContainer';
 import HeaderContainer from './Components/Header/HeaderContainer';
+import Login from './Components/Login/Login';
 import Navbar from './Components/Navbar/Navbar';
 import {BrowserRouter, Route} from "react-router-dom";
 import Feed from './Components/NewsFeed/Feed';
@@ -22,6 +23,9 @@ const App = () => {
       < Route path='/feed' component ={Feed}/>
       < Route path='/users' render= {() => <UserPageContainer /> } />
       < Route path='/settings' component ={Settings} />
+      < Route path='/login' component = {Login} /> 
+     
+
       </div>
 </div>  </BrowserRouter>  
   );

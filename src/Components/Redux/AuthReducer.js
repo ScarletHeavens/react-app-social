@@ -1,8 +1,9 @@
+import {authAPI} from '../DAL/API';
 const SET_USER_DATA = 'SET-USER-DATA'
 
 let defaultState =  {
-      id: null,
       email: null,
+      id: null,
       login: null,
       isAuth: false,
       
@@ -21,7 +22,15 @@ const authReducer = (state = defaultState, action) => {
         }
 }
 
-export const setUserData = (userId, email, login) => ({type: SET_USER_DATA, data: {userId, email, login}});
+export const setUserData = (email, id, login) => ({type: SET_USER_DATA, data: { email, id, login}});
 
+// export const getUserData = () => (dispatch) => {
+//     authAPI.me().then(data => {
+//         if (data.resultCode === 0) {
+//         let {id, email, login} = data.data;
+//          dispatch(setUserData(id, email, login));
+//         }
+//           });
+// }
 
 export default authReducer;
