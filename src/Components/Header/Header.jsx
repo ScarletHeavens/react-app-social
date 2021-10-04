@@ -5,8 +5,9 @@ const Header = (props) => {
     return (<div className = {c.header}>
         <img src='https://odindesignthemes.com/vikinger-theme/wp-content/uploads/2020/09/cropped-logovikinger.png' alt ='myLogo'></img>
         <div className = {c.loginBlock}>
-         { props.isAuth? props.login :
-         <NavLink to ={'/login'}>Login</NavLink> }</div> 
+         { props.isAuth
+         ? <div>{props.login} <button onClick = {props.logout}>Log out</button></div>
+          :<NavLink to ={'/login'}><button>Login</button></NavLink> }</div> 
     </div>);
       }
 

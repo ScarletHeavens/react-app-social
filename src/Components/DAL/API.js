@@ -23,11 +23,30 @@ export const userAPI = {
   },
 
   getProfile (id) {  
-   return instance.get(`profile/${id}`);
+  alert('old method. use profileApi.getProfile')
+   return profileAPI.getProfile(id);
+    }
+  }
+
+  export const profileAPI = { 
+    getProfile (id) {  
+      return instance.get(`profile/${id}`);
+       },
+    getStatus (id){ 
+      return instance.get(`profile/status/${id}`);
+    },
+    updateStatus(status){
+      return instance.put(`profile/status`, {status: status});
     }
   }
 
   export const authAPI = {
     me() {return instance.get(`auth/me`)
+  },
+   login(email, password, rememberMe = false) {
+     return instance.post('/auth/login', {email, password, rememberMe});
+   },
+   logout() {
+    return instance.delete('/auth/login');
   }
   }

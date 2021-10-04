@@ -2,6 +2,7 @@
 import React from 'react';
 import NewPost from '/Users/nellimelik/first-react-app/src/Components/Profile/Posts/NewPost/NewPost.jsx';
 
+
 const Posts = (props) => {
  let publicList = props.posts.map(el => (< NewPost message={el.message} likeCount={el.likeCount}/>));
  let newPostArea = React.createRef();
@@ -16,6 +17,7 @@ const Posts = (props) => {
  }
 
 return (<div className = {c.block}>
+
        <div>
        <h2> My posts </h2>
        </div>
