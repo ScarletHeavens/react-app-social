@@ -1,8 +1,7 @@
-import preloader from '../../Assets/Images/preloader.gif'
+import c from '/Users/nellimelik/first-react-app/src/Components/Common/Preloader.module.css'
 
 const Preloader = () => {
-  return <div>
-  <img src = {preloader}></img>
+  return <div className = {c.spinner}>
   </div>
 };
 

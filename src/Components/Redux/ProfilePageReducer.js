@@ -1,6 +1,5 @@
 import {profileAPI} from '../DAL/API';
 const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
 const SET_STATUS = 'SET-STATUS';
 
@@ -8,7 +7,6 @@ const SET_STATUS = 'SET-STATUS';
 
 let defaultState = {
         posts : [{id:1, message:"I love trans fats", likeCount:'2'},{id:2, message:"Misery was inspired by my first girlfriend",likeCount: '18'},{ id:3 ,message:"Happy FriYay!", likeCount: "0"}, {id:4,message: "Chupakabra (.)(.)", likeCount: "666"}],
-        newPostChange : "Say something",
         profile: null,
         status: " ",
 };
@@ -18,20 +16,14 @@ const profilePageReducer = (state = defaultState, action) => {
         case ADD_POST:
         let nPost = {
           id: 5,
-          message: state.newPostChange,
+          message: action.newPostArea,
           likeCount: 9
         };
         return {
           ...state,
           posts: [...state.posts, nPost],
-          newPostChange: '',      
         };
-        case UPDATE_NEW_POST_TEXT:
-        return {
-          ...state,
-          newPostChange: action.newText,
-        }
-        case SET_USER_PROFILE:
+          case SET_USER_PROFILE:
           return {
             ...state,
             profile: action.id,
@@ -45,10 +37,9 @@ const profilePageReducer = (state = defaultState, action) => {
 }};
 
 
-export const addPostActionCreator = () => ({type: ADD_POST});
+export const addPostActionCreator = (newPostArea) => ({type: ADD_POST, newPostArea});
 const setUserProfile = (id) => ({type: SET_USER_PROFILE, id});
 export const setStatus = (status) => ({type: SET_STATUS, status});
-export const updNewPostActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text });
 
 
 //thunk
