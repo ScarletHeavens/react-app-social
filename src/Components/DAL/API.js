@@ -7,7 +7,7 @@ headers: { "API-KEY" : "ba533873-ca25-4f6f-a9a8-b0523c106250"}
 });
 
 export const userAPI = {
-  getUsers (currentPage = 1, pageSize = 10){
+  loadUsers (currentPage = 1, pageSize = 10){
   return instance.get(`users?page=${currentPage}&count=${pageSize} `)
   .then(response => {return response.data});
   },

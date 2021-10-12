@@ -77,10 +77,10 @@ const userPageReducer = (state = defaultState, action) => {
     export const toggleFollowingProgress = (isFetching, id) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, id});
 
 //this is a thunk
-    export const getUsers = (currentPage,pageSize) => {
+    export const loadUsers = (currentPage,pageSize) => {
     return (dispatch) => {
           dispatch(toggleIsFetching(true));
-          userAPI.getUsers(currentPage, pageSize).then(data => {
+          userAPI.loadUsers(currentPage, pageSize).then(data => {
            dispatch(toggleIsFetching(false));
            dispatch(setUsers(data.items));
            dispatch(setTotalUsersCount(data.totalCount));
