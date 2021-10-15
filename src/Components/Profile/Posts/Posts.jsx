@@ -1,13 +1,16 @@
 import c from './Posts.module.css';
 import React from 'react';
-import NewPost from '/Users/nellimelik/first-react-app/src/Components/Profile/Posts/NewPost/NewPost.jsx';
+import NewPost from './NewPost/NewPost';
 import {Field, reduxForm} from 'redux-form'
 import {required, maxLen} from '../../../utils/validators'
 import {Textarea} from '../../Common/FormControls/FormControls'
 
 const maxLen10 =  maxLen(300);
 
-const Posts = (props) => {
+//react memo checks if this.state == prev.state and if so, doenst rerender the component. It's used for the
+//performance optimization. 
+const Posts = React.memo(props => {
+
  let publicList = props.posts.map(el => (< NewPost message={el.message} likeCount={el.likeCount}/>));
 
  let  addPost = (value) => {props.addPost(value.newPostArea);};
@@ -22,7 +25,7 @@ return (<div className = {c.block}>
 {publicList}
  </div>
 </div>)
-};
+});
 
 
 const AddNewPost = (props) => {
