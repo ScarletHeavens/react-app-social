@@ -8,10 +8,11 @@ import {Textarea} from '../../Common/FormControls/FormControls'
 const maxLen10 =  maxLen(300);
 
 //react memo checks if this.state == prev.state and if so, doenst rerender the component. It's used for the
-//performance optimization. 
+//performance optimization. However, now it's already optimized.
 const Posts = React.memo(props => {
 
- let publicList = props.posts.map(el => (< NewPost message={el.message} likeCount={el.likeCount}/>));
+ let publicList = [...props.posts].reverse()
+ .map(el => (< NewPost message={el.message} likeCount={el.likeCount}/>));
 
  let  addPost = (value) => {props.addPost(value.newPostArea);};
  

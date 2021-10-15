@@ -2,6 +2,7 @@ import {profileAPI} from '../DAL/API';
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
 const SET_STATUS = 'SET-STATUS';
+const DELETE_POST = 'DELETE-POST';
 
 
 
@@ -33,6 +34,11 @@ const profilePageReducer = (state = defaultState, action) => {
             ...state,
             status: action.status,
           }
+        case DELETE_POST:
+          return{
+            ...state,
+            posts: state.posts.filter(p => p.id != action.id)
+          }
         default: return state;
 }};
 
@@ -40,7 +46,7 @@ const profilePageReducer = (state = defaultState, action) => {
 export const addPostActionCreator = (newPostArea) => ({type: ADD_POST, newPostArea});
 const setUserProfile = (id) => ({type: SET_USER_PROFILE, id});
 export const setStatus = (status) => ({type: SET_STATUS, status});
-
+export const deletePostActionCreator = (id) => ({type: DELETE_POST, id})
 
 //thunk
 export const getUserProfile = (id) => (dispatch) => {
