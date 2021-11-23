@@ -25,7 +25,7 @@ const deactivateEdit = () => {
     <div>
       { !editMode && (
         <div>
-          <span onClick={activateEdit}>{ props.status || "Has not spoken yet"}</span>
+          <span onDoubleClick={activateEdit}  >{ props.status || "Has not spoken yet"}</span>
         </div>
       )}
       { editMode && (

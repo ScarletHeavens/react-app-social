@@ -1,4 +1,4 @@
-import profilePageReducer, { addPostActionCreator, deletePostActionCreator } from "./ProfilePageReducer";
+import profilePageReducer, { addPostActionCreator, deletePostActionCreator } from "./Components/Redux/ProfilePageReducer";
 
 let state = {
   posts : [{id:1, message:"I love trans fats", likeCount:'2'},{id:2, message:"Misery was inspired by my first girlfriend",likeCount: '18'},{ id:3 ,message:"Happy FriYay!", likeCount: "0"}, {id:4,message: "Chupakabra (.)(.)", likeCount: "666"}]};

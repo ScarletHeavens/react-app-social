@@ -11,11 +11,13 @@ import { getCurrentPage, getFollowingProgress, getIsFetching, getPageSize, getTo
 class UserContainer extends React.Component {
             
   componentDidMount(){
-    this.props.loadUsers(this.props.currentPage,this.props.pageSize);
+    let {currentPage, pageSize} = this.props;
+    this.props.loadUsers(currentPage,pageSize);
   }
   
   onPageChange = (u) => {
-    this.props.loadUsers(u, this.props.pageSize);
+    let {pageSize} = this.props;
+    this.props.loadUsers(u, pageSize);
     this.props.setCurrentPage(u);
   }
 

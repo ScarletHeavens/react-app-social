@@ -1,20 +1,19 @@
 import c from './ProfileInfo.module.css'
 import Preloader from '../../Common/Preloader'
 import img from '../../../Assets/Images/profile.png';
-import ProfileStatus from './ProfileStatus';
 import ProfileStatusHooks from './ProfileStatusWithHooks';
 
 
-const ProfileInfo = (props) => {
-   if (!props.profile) {
+const ProfileInfo = ({profile, status, updateStatus}) => {
+   if (!profile) {
        return <Preloader/>
    } 
     return <div>
      <div>
     <img src="https://odindesignthemes.com/vikinger-theme/wp-content/uploads/buddypress/members/1/cover-image/5f6d2c93c75db-bp-cover-image.jpg" alt='sunset'></img>
     </div> 
-    <div className = {c.ava}> <img src= {!props.profile.photos.large ? img : props.profile.photos.large  }/>
-    <ProfileStatusHooks status={props.status} updateStatus ={props.updateStatus}/>
+    <div className = {c.ava}> <img src= {!profile.photos.large ? img :profile.photos.large  }/>
+    <ProfileStatusHooks status={status} updateStatus ={updateStatus}/>
 
     </div>
     </div>
