@@ -4,9 +4,6 @@ import Paginator from '../Common/Paginator/Paginator';
 import User from './User';
 
 const UserPage = ({totalUsers, pageSize, currentPage, onPageChange, users, ...props}) => {
-    let pages = [];
-    let count = Math.ceil(totalUsers/pageSize);
-    for (let i=1; i <= count; i++) pages.push(i);
 
     return <div className = {c.main} > 
      <Paginator totalUsers = {totalUsers} pageSize = {pageSize}
