@@ -12,9 +12,15 @@
   background-color: rgb(206, 187, 187);
   text-align: center;
   border-right: 40px;
+  position: relative;
 }
 
 .bio { 
   margin-top: 140px;
+}
 
+.imageInput {
+  position: absolute;
+  padding-left: 20px;
+  padding-top: 100px;
 }

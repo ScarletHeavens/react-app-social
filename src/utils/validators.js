@@ -6,3 +6,4 @@ export const maxLen = (maxLen) => (value) => {
     if (value.length > maxLen) return `Max length is ${maxLen} symbols`;
         return undefined; 
     }
+

@@ -1,8 +1,12 @@
+import { stopSubmit } from 'redux-form';
 import {profileAPI} from '../DAL/API';
 const ADD_POST = 'profile/ADD-POST';
 const SET_USER_PROFILE = 'profile/SET-USER-PROFILE';
 const SET_STATUS = 'profile/SET-STATUS';
 const DELETE_POST = 'profile/DELETE-POST';
+const UPDATE_PHOTO = 'profile/UPDATE-PHOTO';
+const SAVE_CHANGES = 'profile/SAVE-CHANGES';
+
 
 let defaultState = {
   posts: [
@@ -46,6 +50,16 @@ const profilePageReducer = (state = defaultState, action) => {
         ...state,
         posts: state.posts.filter((p) => p.id != action.id),
       };
+      case UPDATE_PHOTO:
+      return {
+        ...state,
+        profile: {...state.profile, photos: action.photos},
+      };
+    case SAVE_CHANGES:
+      return {
+        ...state,
+        profile: {...state.profile, ...action.profile}
+      }
     default:
       return state;
   }
@@ -57,6 +71,8 @@ export const addPostActionCreator = (newPostArea) => ({
 });
 const setUserProfile = (id) => ({ type: SET_USER_PROFILE, id });
 export const setStatus = (status) => ({ type: SET_STATUS, status });
+export const setPhoto = (photos) => ({ type: UPDATE_PHOTO, photos });
+const setChanges = (profile) => ({ type: SAVE_CHANGES, profile})
 export const deletePostActionCreator = (id) => ({ type: DELETE_POST, id });
 
 export const getUserProfile = (id) => async (dispatch) => {
@@ -75,5 +91,20 @@ export const updateStatus = (status) => async (dispatch) => {
     dispatch(setStatus(status));
   }
 };
+export const updatePhoto = (photo) => async (dispatch) => {
+  let response = await profileAPI.updatePhoto(photo);
+  if (response.data.resultCode === 0) {
+    dispatch(setPhoto(response.data.data.photos));
+  }
+};
+export const saveChanges = (profile) => async (dispatch) => {
+ try{ let response = await profileAPI.saveChanges(profile);
+  if (response.data.resultCode === 0) {
+   dispatch(setChanges(profile))}
+   else {dispatch(stopSubmit("profileDetails", { _error: response.data.messages[0] }))}
+  //return Promise.reject(response.data.messages[0]);
+} catch(error){
+alert(error.message)
+}};
 
 export default profilePageReducer;

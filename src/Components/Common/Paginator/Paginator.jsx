@@ -1,7 +1,8 @@
 import c from './Paginator.module.css';
 import React from 'react';
+import { Fragment } from 'react';
 
-const Paginator = ({totalUsers, pageSize, currentPage, onPageChange, chunk = 10}) => {
+const Paginator = ({totalUsers, pageSize, currentPage, onPageChange, chunk = 5}) => {
     let count = Math.ceil(totalUsers/pageSize);
     let pages = [];
     for (let i=1; i <= count; i++) pages.push(i);
@@ -13,17 +14,26 @@ const Paginator = ({totalUsers, pageSize, currentPage, onPageChange, chunk = 10}
 
     React.useEffect(()=>setChunkNumber(Math.ceil(currentPage/chunk)), [currentPage]);
     
-    return <div> 
-    <div className = {c.paginator}>
-      {chunkNumber > 1 && <button onClick= {() => {setChunkNumber(chunkNumber -1)}}> LESS </button>}
+    const onLastClick= () => {
+      chunkCount = chunk;
+      onPageChange(count);
+  
+    }
+    return (
+    
+    <div className = {c.pagination} >
+    <div className = {c.page} >
+      {chunkNumber > 1 && <nav><span onClick = {() => {onPageChange(count - (count-1))}}>First </span><button onClick= {() => {setChunkNumber(chunkNumber -1)}}> &laquo; </button> </nav>}
       {pages.filter(p => p >= leftChunk && p <= rightChunk).map(u => {
-          return <span className = {currentPage === u && c.active} onClick = {() => {onPageChange(u)}}> {u} </span>
+          return <span className={`${c.page} ${currentPage === u && c.selectedPage}`} onClick = {() => {onPageChange(u)}}> {u} </span>
       })}
-      {chunkCount > chunk && <button onClick= {()=> {
+      { chunkCount > chunk && <nav><button onClick= {()=> {
         setChunkNumber(chunkNumber +1);
-      }}>MORE</button>}
+      }}>&raquo;</button><span onClick = {onLastClick}> Last</span></nav>}
       </div>
- </div>
+      </div>
+      
+      )
 }
 
 export default Paginator;

@@ -1,4 +1,27 @@
-
-.active { 
-  color: #615dfa;
+.pagination{
+  display: flex;
+  padding: 10px 0px;
+  margin: 0px 0px 10px 10px;
+  overflow-y: auto;
+}
+.page{
+  padding: 0 15px;
+  height: 30px;
+  color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 0px 0px;
+  /* transition: step-start .5s ease-in-out; */
+  background: #fff;
+}
+ /* @media (min-width: 992px){
+  .page:hover{
+      background: #e68675;
+      color: #fff;
+  }
+}  */
+.selectedPage{
+  background: #ba9fdd;
+  color: #fff;
 }

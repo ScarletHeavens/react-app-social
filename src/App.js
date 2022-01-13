@@ -1,7 +1,7 @@
 import './App.css';
 import {UserPageContainer,ProfileContainer,HeaderContainer,DialogsContainer} from './Components';
 import {Login, Navbar, Feed, Settings} from './Components';
-import {BrowserRouter, Route, withRouter} from "react-router-dom";
+import {BrowserRouter, Redirect, Route, Switch, withRouter} from "react-router-dom";
 import Preloader from './Components/Common/Preloader';
 import {initializeApp} from './Components/Redux/AppReducer';
 import { Component} from 'react';
@@ -10,9 +10,18 @@ import { compose } from 'redux';
 import LazyLoadComponent from './hoc/LazyLoadComponent';
 
 class App extends Component {
+ catchUnhandledErrors = (promiseRejectionEvent) => {
+ alert('Error occured');
+ } 
+  
   componentDidMount() {
     this.props.initializeApp();
+    window.addEventListener('unhandledRejection', this.catchUnhandledErrors);
   }
+  componentWillUnmount() {
+    window.removeEventListener('unhandledRejection', this.catchUnhandledErrors)
+  }
+  
   render() {
     if (!this.props.initialized) return <Preloader />;
 
@@ -26,6 +35,7 @@ class App extends Component {
             <Navbar />
           </div>
           <div className="app-wrapper-content">
+            <Switch>
             <Route path="/messages" 
             render={LazyLoadComponent(DialogsContainer)}
             />
@@ -37,6 +47,9 @@ class App extends Component {
             />
             <Route path="/settings" component={Settings} />
             <Route path="/login" component={Login} />
+            <Route path='/' render={()=> <Redirect to={'/login'} />}/>
+            <Route path="*" render={() => <div>404 page not found</div>}/>
+            </Switch>
           </div>
         </div>{" "}
       </BrowserRouter>
