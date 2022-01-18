@@ -7,7 +7,7 @@ const User = ({user, follow, unfollow, followingProgress}) => {
     return <div key ={user.id}>
             <span>
                 <div>
-                   <NavLink to ={'/home/'+ user.id}> <img src={user.photos.small == null ? img : user.photos.small}></img></NavLink> 
+                   <NavLink to ={'/home/'+ user.id}> <img  alt='' src={user.photos.small == null ? img : user.photos.small}></img></NavLink> 
                     </div>
                 <div> {user.follow 
                 ? <button disabled = {followingProgress.some(id => id===user.id)} onClick = { () => {

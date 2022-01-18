@@ -33,7 +33,7 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, updatePhoto, saveC
     </div> 
     <div className = {c.ava}> 
     <input type={"file"} className = {c.imageInput} hidden = {hide} onClick = {handleOnClick}/>
-    <img src= {!profile.photos.large ? img :profile.photos.large} onClick ={() => {if (isOwner) setHide(!hide)}}/>
+    <img alt='' src= {!profile.photos.large ? img :profile.photos.large} onClick ={() => {if (isOwner) setHide(!hide)}}/>
     {editMode ? 
     <ProfileDetailsForm initialValues = {profile} profile = {profile} isOwner= {isOwner} onSubmit = {onSubmit}/> : 
     <ProfileDetails profile = {profile}   isOwner= {isOwner} activateEdit ={() => setEditMode(true)}/>}
