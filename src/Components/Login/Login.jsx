@@ -14,7 +14,7 @@ const LoginForm = ({handleSubmit, error, captchaUrl}) => {
     {fieldCreator(null, null, "rememberMe", Input, {type: 'checkbox'}, 'remember me' )}
     {error && <div className = {c.formSummaryError}> {error}</div> }
     {captchaUrl && <div>
-    <img src={captchaUrl}/>
+    <img alt='' src={captchaUrl}/>
     {fieldCreator([required], "insert captcha", "captcha", Input, {})}
     </div>}
     <div><button>Login</button></div>

@@ -1,10 +1,17 @@
 import c from './Paginator.module.css';
 import React from 'react';
-import { Fragment } from 'react';
 
-const Paginator = ({totalUsers, pageSize, currentPage, onPageChange, chunk = 5}) => {
+type PropType = {
+  totalUsers: number
+  pageSize: number
+  currentPage: number
+  onPageChange: (count: number) => void
+  chunk: number
+}
+
+const Paginator: React.FC<PropType> = ({totalUsers, pageSize, currentPage, onPageChange, chunk = 5}) => {
     let count = Math.ceil(totalUsers/pageSize);
-    let pages = [];
+    let pages: Array<number> = [];
     for (let i=1; i <= count; i++) pages.push(i);
 
     let chunkCount = Math.ceil(count/chunk);

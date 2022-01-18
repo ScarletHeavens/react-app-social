@@ -1,20 +1,31 @@
 const ADD_MESSAGE = "message/ADD-MESSAGE";
 
+type MessageType = {
+  message: string
+  id: number
+}
+type NameType = {
+  name: string
+  id: number
+}
+
 let defaultState = {
   messages: [
     { message: "Sand dunes", id: 1 },
     { message: "Carry sucks", id: 2 },
     { message: "Whassup", id: 3 },
-  ],
+  ] as Array<MessageType>,
   names: [
     { name: "Ivan", id: 1 },
     { name: "Nelli", id: 2 },
     { name: "Jacub", id: 3 },
     { name: "Hovhannes", id: 4 },
-  ],
+  ] as Array<NameType>,
 };
 
-const messagePageReducer = (state = defaultState, action) => {
+export type DefaultStateType = typeof defaultState
+
+const messagePageReducer = (state = defaultState, action: any): DefaultStateType => {
   switch (action.type) {
     case ADD_MESSAGE:
       let body = action.newMessageBody;
@@ -25,9 +36,14 @@ const messagePageReducer = (state = defaultState, action) => {
     default:
       return state;
   }
-};
+}
 
-export const addMessageActionCreator = (newMessageBody) => ({
+type AddMessageActionCreatorType = {
+  type: typeof ADD_MESSAGE
+  newMessageBody: string
+}
+
+export const addMessageActionCreator = (newMessageBody: string):AddMessageActionCreatorType => ({
   type: ADD_MESSAGE,
   newMessageBody,
 });
